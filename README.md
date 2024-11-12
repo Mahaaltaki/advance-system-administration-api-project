@@ -1,66 +1,130 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+README for Advanced Task Management API
+Project Title:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Advanced Task Management API with Real-time Notifications, Task Dependencies, and Enhanced Security
+Overview:
 
-## About Laravel
+This project aims to develop a robust Task Management API with advanced features to facilitate comprehensive task management workflows. It supports real-time notifications, task dependencies, and high-level security measures to protect user data. Key features include the ability to manage various types of tasks (e.g., Improvements, Features, Bugs), handle task dependencies, and generate regular performance reports. User roles, permissions, and authentication are managed to ensure secure access and actions within the system.
+Features:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+    Task Management:
+        Support for various task types (e.g., Bug, Feature, Improvement).
+        Advanced task filtering and search capabilities.
+        Task status management with automatic updates based on dependencies.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    Task Dependencies:
+        Task dependencies are tracked, with automatic status updates to "Blocked" or "Open" as needed.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    Real-time Notifications:
+        Users receive instant notifications on task assignments, status changes, and comments.
 
-## Learning Laravel
+    Security:
+        JWT Authentication: Secure access using JSON Web Tokens (JWT).
+        Role-based Authorization: Control actions based on user roles.
+        Rate Limiting and CSRF Protection: Prevents DDoS and CSRF attacks.
+        Data Sanitization: Protection against XSS and SQL Injection.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    Enhanced Performance:
+        Database Optimization: Uses caching and indexing for frequently queried tasks.
+        Background Processing: Daily performance reports are handled via job queues.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    Error Logging and Handling:
+        A centralized logging system captures and tracks errors for review and analysis.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    Advanced Reporting:
+        API endpoints allow for the generation of various task-related reports with detailed filtering options.
 
-## Laravel Sponsors
+    Soft Delete with Restore Option:
+        Tasks can be soft-deleted and restored later without data loss.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+API Endpoints:
+Task Management
 
-### Premium Partners
+    Create Task: POST /api/tasks
+    Update Task Status: PUT /api/tasks/{id}/status
+    Reassign Task: PUT /api/tasks/{id}/reassign
+    Add Comment to Task: POST /api/tasks/{id}/comments
+    Add Attachment to Task: POST /api/tasks/{id}/attachments
+    View Task Details: GET /api/tasks/{id}
+    Advanced Task Filtering: GET /api/tasks?type=Bug&status=Open&assigned_to=2&due_date=YYYY-MM-DD&priority=High&depends_on=null
+    Assign Task to User: POST /api/tasks/{id}/assign
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Reporting and Dependency
 
-## Contributing
+    Generate Daily Task Report: GET /api/reports/daily-tasks
+    View Blocked Tasks Due to Dependencies: GET /api/tasks?status=Blocked
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Security and Protection
 
-## Code of Conduct
+    JWT Authentication: Secures access to API endpoints by validating tokens for each request.
+    Rate Limiting: Controls request rates to mitigate DDoS attacks.
+    CSRF Protection: Guards against cross-site request forgery attacks.
+    Data Sanitization: Filters and sanitizes user inputs to prevent XSS and SQL injection.
+    Role-based Authorization: Manages user permissions based on roles to control task actions like assignments and status updates.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Models:
 
-## Security Vulnerabilities
+    Task
+        Fields: title, description, type (Bug, Feature, Improvement), status (Open, In Progress, Completed, Blocked), priority (Low, Medium, High), due_date, assigned_to (User ID).
+    Comment:
+        Polymorphic relationship to Task to handle task comments.
+    Attachment:
+        Polymorphic relationship to manage file attachments.
+    TaskStatusUpdate:
+        Tracks changes in task status (relationship: hasMany).
+    User:
+        Manages users and associates them with tasks (relationship: belongsTo).
+    Role:
+        Manages user permissions by defining specific permissions for each user.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Advanced Features
 
-## License
+    Task Dependencies:
+        Uses a dependencies_task table to track and manage task dependencies.
+        Automatically sets task status to "Blocked" if dependent tasks are incomplete.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    Automatic Reassignments:
+        Tasks dependent on closed tasks automatically switch from "Blocked" to "Open" when all conditions are met.
+
+    Performance Management:
+        Uses job queues to handle high loads and manage task reports efficiently.
+
+    File Management:
+        Secures file uploads with encryption and optional virus scanning for safety.
+
+Database Optimization
+
+    Caching: Stores frequently accessed tasks to improve response time.
+    Database Indexing: Enhances performance of search and filter queries.
+
+Error Handling and Reporting
+
+    Custom Exception Handling: Provides detailed error messages to users.
+    Error Logging: Captures all errors within the system for later analysis.
+
+Additional Reporting Options
+
+    API supports generating various types of reports (e.g., completed tasks, delayed tasks, tasks by user) with advanced filtering capabilities.
+شيي
+Setup and Installation
+
+    Clone the Repository:
+
+git clone https://github.com/your-username/advanced-task-management-api.git
+cd advanced-task-management-api
+
+Install Dependencies:
+
+composer install
+npm install
+
+Set Up Environment Variables: Configure .env file with database, JWT, and other necessary configurations.
+
+Run Migrations:
+
+php artisan migrate
+
+Run the Server:
+php artisan serve
+
+php artisan serve
