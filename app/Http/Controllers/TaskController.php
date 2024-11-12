@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
-use App\Services\taskService;
+use App\Http\Services\TaskService;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\TaskRequest;
 use Illuminate\Support\Facades\Log;
@@ -25,72 +25,56 @@ class TaskController extends Controller
     {
         try {
             $tasks = $this->taskService->getAllTasks();
-            return $this->successResponse($tasks, 'bring all tasks successfully.', 200);
+            return $this->successResponse($tasks, 'All tasks fetched successfully.', 200);
         } catch (\Exception $e) {
-            return $this->handleException($e, ' error with bring all tasks.');
+            return $this->handleException($e, 'Error fetching tasks.');
         }
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TaskRequest $request ,array $data)
-{
-    try {
-        $task = $this->taskService->storeTask($request,$data);
-        return $this->successResponse($task, 'The task stored successfully', 201);
-    } catch (\Exception $e) {
-        return $this->handleException($e, 'Error storing the task');
+    public function store(TaskRequest $request): JsonResponse
+    {
+        try {
+            $task = $this->taskService->storeTask($request->validated());
+            return $this->successResponse($task, 'Task stored successfully.', 201);
+        } catch (\Exception $e) {
+            return $this->handleException($e, 'Error storing task.');
+        }
     }
-}
+
 
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($id): JsonResponse
     {
-        try{
-        
-            $task=$this->taskService->showTask($id);
-            return $this->successResponse($task,'the task has been showing successfuly',200);
-        }catch(\Exception $e){
-         return $this->handleException($e,'error with showing the task');
+        try {
+            $task = $this->taskService->showTask($id);
+            return $this->successResponse($task, 'Task retrieved successfully.', 200);
+        } catch (\Exception $e) {
+            return $this->handleException($e, 'Error retrieving task.');
         }
     }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(TaskRequest $request, $id)
+    public function update(TaskRequest $request, $id): JsonResponse
     {
-    try {
-        $task = Task::findOrFail($id);
-        $validated = $request->validated();
-        $updatedTask = $this->taskService->updateTask($task, $validated);
-        return $this->successResponse($updatedTask, 'The task updated successfully', 200);
-    } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-        return $this->notFound('The task not found');
-    } catch (\Exception $e) {
-        return $this->handleException($e, 'Error updating the task');
-    }
-
-
-    }
-    public function update_assigned_to(TaskRequest $request, Task $task)
-    {
-        try{
-            if(!$task->exists){
-                return $this->notFound('the task not found');
-            }
-            $validated=$request->validated();
-            $updatedTask=$this->taskService->update_assigned_to($task,$validated);
-           return $this->successResponse($updatedTask,'the task updated successfuly',200);
-        }catch(\Exception $e){
-            return $this->handleException($e,'error with updating task');
-    
+        try {
+            $task = Task::findOrFail($id);
+            $updatedTask = $this->taskService->updateTask($task, $request->validated());
+            return $this->successResponse($updatedTask, 'Task updated successfully.', 200);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return $this->notFound('Task not found.');
+        } catch (\Exception $e) {
+            return $this->handleException($e, 'Error updating task.');
         }
     }
+   
 /**
      * Remove the one object from storage.
      */
@@ -124,21 +108,17 @@ class TaskController extends Controller
     public function updateStatus(int $id, Request $request): JsonResponse
     {
         try {
-            // get the status from $request
             $status = $request->input('status');
-
-            // تحديث الحالة باستخدام TaskService
             $updatedTask = $this->taskService->updateTaskStatus($id, $status);
-
             return $this->successResponse($updatedTask, 'Task status updated successfully.');
         } catch (\Exception $e) {
-            return $this->handleException($e, 'error with updating the task');
+            return $this->handleException($e, 'Error updating task status.');
         }
-        }
+    }
         //reassign user to complete task
-        public function reassignUser(Request $request, $taskId)
+        public function reassignUser(Task  $task,string $userId)
         {
-            $userId = $request->input('user_id');
+            $taskId = $task->id;
     
             try {
                 $result = $this->taskService->reassignUserToTask($taskId, $userId);
@@ -160,16 +140,13 @@ class TaskController extends Controller
             }
         }
         //add attachment to task
-        public function addAttachment(Request $request, $taskId)
+        public function addAttachment(Request $request, $taskId): JsonResponse
         {
-            $file = $request->input('file');
-            $taskId = $request->input('task_id'); // يمكن تضمين user_id إذا كنت تتبع المستخدمين
-    
             try {
-                $file= $this->taskService->addCommentToTask($taskId, $file);
-                return $this->successResponse( [$file],'Comment added successfully',200);
+                $attachment = $this->taskService->addAttachmentToTask($taskId, $request->file('attachment'));
+                return $this->successResponse($attachment, 'Attachment added successfully.');
             } catch (\Exception $e) {
-                return response()->json(['error' => $e->getMessage()], 400);
+                return $this->handleException($e, 'Error adding attachment.');
             }
         }
 

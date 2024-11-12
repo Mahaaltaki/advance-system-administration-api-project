@@ -2,59 +2,45 @@
 
 namespace App\Http\Services;
 
-use App\Models\Attachment;
 use Exception;
-use Illuminate\Support\Facades\Storage;
+use Validator;
+use App\Models\Attachment;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class AttachmentService {
 
-    public function storefile($request)
-    {
-        $file = $request->file;
-        $originalName = $file->getClientOriginalName();
-
-        // Ensure the file extension is valid and there is no path traversal in the file name
-        if (preg_match('/\.[^.]+\./', $originalName)) {
-            throw new Exception(trans('general.notAllowedAction'), 403);
-        }
-
-
-        // Check for path traversal attack (e.g., using ../ or ..\ or / to go up directories)
-        if (strpos($originalName, '..') !== false || strpos($originalName, '/') !== false || strpos($originalName, '\\') !== false) {
-            throw new Exception(trans('general.pathTraversalDetected'), 403);
-        }
-
-        // Validate the MIME type to ensure it's an image
-        $allowedMimeTypes = ['file/pdf', 'file/png', 'file/doc', 'file/docx'];
-        $mime_type = $file->getClientMimeType();
-
-        if (!in_array($mime_type, $allowedMimeTypes)) {
-            throw new FileException(trans('general.invalidFileType'), 403);
-        }
-
-        // Generate a safe, random file name
-        $fileName = Str::random(32);
-
-        $extension = $file->getClientOriginalExtension(); // Safe way to get file extension
-        $filePath = "Files/{$fileName}.{$extension}";
-
-        // Store the file securely
-        $path = Attachment::disk('local')->putFileAs('Files', $file, $fileName . '.' . $extension);
-
-        // Get the full URL path of the stored file
-        $url = Storage::disk('local')->url($path);
-
-        // Store image metadata in the database
-        $file = Attachment::create([
-            'name' => $fileDTO->name ?? $originalName,
-            'path' => $url,
-            'mime_type' => $mime_type,
-            'alt_text' => $fileDTO->alt_text ?? null,
+    public function upload(Request $request){
+        $validator=Validator::make($request->all(),[
+            'file' => 'required|file|max:5120|mimes:png,jpg,jpeg,gif,pdf,doc,docx',
         ]);
+        if($validator->fails()){
+            return response()->json(['error'=>'File upload faild.'],422);
+        }
+        $file=$request->file('file');
+        $mimeType= $file->getMimetype();
+        if(! in_array($mimeType,['image/jpeg','image/png','application/pdf'])){
+            return response()->json(['error' => 'Invalid file type.'],422);
 
-        return $file;
+        }
+        $originalFilename=$request->file('file')->getClientOriginalName();
+        $sanitizedFilename= preg_replace('/[^A-Za-z0-9_\-\.]/','_',$originalFilename);
+        $baseFilename =strtolower(pathinfo($sanitizedFilename,PATHINFO_FILENAME));
+        if(strpos($baseFilename,'.') !== false ){
+            return response()->json(['error'=>'Invalid file type.'],422);
+        }
+        //Ensure the sanitized Filename dos notcontain any directory traversal sequences
+        $sanitizedFilename= basename($sanitizedFilename);
+
+        //Generate a unique file name with the sanitized filename
+        $uniqueId =Str::uuid();
+        $filename=$uniqueId.'_'.$sanitizedFilename;
+        //storethe file in the 'uploads' directory using the storage facade and retrieve its path
+        $path = Storage::disk('public')->putFileAs('uploads',$request->file('file'),$filename);
+        return response()->json(['path' => $path,'filename'=>$filename],201);
     }
+    
 
 }

@@ -38,11 +38,11 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(RoleRequest $request)
+    public function store(RoleRequest $request,array $idPermission)
     {
         try{
             $validatedRequest=$request->validated();
-            $role=$this->roleService->storeRole($validatedRequest);
+            $role=$this->roleService->storeRole($validatedRequest,$idPermission);
             return $this->successResponse($role,'role stored successfuly',201);
         }catch(\Exception $e){
             return $this->handleException($e, ' error with stored role',);

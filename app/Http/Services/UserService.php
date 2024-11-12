@@ -2,8 +2,10 @@
 
 namespace App\Http\Services;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use App\Resources\UserResource;
+use Illuminate\Support\Facades\Log;
+use App\Http\Resources\UserResource;
 
 
 class UserService
@@ -13,15 +15,13 @@ class UserService
      * @return array containing paginated user resources.
      */
     public function getAllUsers(Request $request): array
-    {
-        // query builder instance for the User model
-        $query = User::query();
-        // Paginate the results
-        $users = $query->paginate(10);
+{
+    // Paginate the results
+    $users = User::paginate(10);
 
-        // Return the paginated users wrapped in a BookResource collection
-        return UserResource::collection($users)->toArray(request());
-    }
+    // Return the paginated users wrapped in a UserResource collection
+    return UserResource::collection($users)->toArray($request);
+}
 
     /**
      * Store a new User.
@@ -51,18 +51,28 @@ class UserService
      * @param int $id of the user.
      * @return array containing the user resource.
      * @throws \Exception exception if the user is not found.*/
-    public function showUser(int $id): array
+    /*Retrieve a specific user by its ID.
+     * @param int $id of the user.
+     * @return array containing the user resource.
+     * @throws \Exception exception if the user is not found.*/
+    public function showUser(int $id)
     {
-        // Find user by ID
-        $user = User::query()->where('id','=',$id)->with('roles');
-        // If user is not found, throw an exception
-        if (!$user) {
-            throw new \Exception('user not found.');
+        try {
+            // Find user by ID or fail
+            $user = User::findOrFail($id);
+            if(!$user){
+                throw new \Exception('user not found');
+            }
+            return $user;
+        }
+        
+        catch (\Exception $e) {
+            Log::error('Faild to retrive user:'.$e->getMessage());
+            throw new \Exception('User not found.');
         }
 
-        // Return the found user
-        return UserResource::make($user)->toArray(request());
     }
+    
 
     /**
      * Update an user.
@@ -72,20 +82,16 @@ class UserService
      * @return array containing the updated user resource.
      */
     public function updateUser(User $user, array $data): array
-{
-    // Update only the fields that are provided in the data array
-    $user->update(array_filter([
-        'name' => $data['name'] ?? $user->name,
-        'email' => $data['email'] ?? $user->email,
-        'password' => $data['password'] ?? $user->password,
-    ]));
-
-    // Update role pivot table (roles instead of role)
-    $user->roles()->updateExistingPivot($user->role_id, ['created_at' => now()]);
-
-    // Return the updated user as a resource
-    return UserResource::make($user)->toArray(request());
-}
+    {
+        $user->update(array_filter([
+            'name' => $data['name'] ?? $user->name,
+            'email' => $data['email'] ?? $user->email,
+            'password' => $data['password'] ?? $user->password,
+        ]));
+    
+        return UserResource::make($user)->toArray(request());
+    }
+    
 
     /**
      * Delete user by ID.
@@ -109,12 +115,19 @@ class UserService
     // Delete user
     $user->delete();
 }
-    public function addRoleToUser(Request $request)
-{
+    public function addRoleToUser(int $id,array $roles)
+{try{
     // Find the user by ID
-    $user = User::find($request['user_id']);
+    $user = User::findOrFail($id);
 
     // Attach the role (roles instead of role)
-    $user->roles()->attach($request['role_id'], ['created_at' => now()]);
+    $user->grantRole($roles);
+    $user->load('roles.permission');
+}catch(\Exception $e){
+    Log::error('faild in grant roles to User: '.$e->getMessage());
+    throw  new \Exception('error in server');
+
+}
+
 }
 }

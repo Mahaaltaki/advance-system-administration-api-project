@@ -3,9 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -64,14 +65,32 @@ class User extends Authenticatable
     {
         return [];
     }
+    public function setPasswordAttribute($value){
+        $this->attributes['password']=Hash::make($value);
+    }
     // علاقة المستخدم بالمهام
     public function tasks()
     {
         return $this->hasMany(Task::class, 'assigned_to');
     }
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class, 'user_role');
-    }
+   // علاقة many-to-many مع Role
+   public function roles()
+   {
+       return $this->belongsToMany(Role::class,'role_user')->withTimestamps();
+   }
+   //to check if the user has permission
+ public function hasPermission(String $permission){
+    return $this->roles()->whereHas('permission',function($p)use($permission){
+        $p->where('name',$permission);
+    })->exists();
 
+ }
+ //revoke role from user
+ public function revokeRole($id){
+    $this->roles()->detach($id);
+ }
+ //grant role to user
+public function grantRole(array $roles){
+    $this->roles()->syncWithoutDetaching( $roles);
+}
 }

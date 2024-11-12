@@ -89,10 +89,10 @@ class UserController extends Controller
             return $this->handleException($e, 'error with deleting the user');
         }
     }
-    public function addRoleToUser(Request $request){
+    public function addRoleToUser(string $id,array $roles){
         try{
-            $validated=$request->validated();
-            $query=$this->userService->addRoleToUser($validated);
+            
+            $query=$this->userService->addRoleToUser($id,$roles);
             return $this->successResponse([$query],'the user have a role successfuly');
         }catch(\Exception $e){
           return $this->handleException($e,'error with setting the role to user');

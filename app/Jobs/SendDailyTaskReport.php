@@ -34,4 +34,3 @@ class SendDailyTaskReport implements ShouldQueue
         Mail::to($this->user->email)->send(new DailyTaskReport($this->user, $tasks));
     }
 }
-

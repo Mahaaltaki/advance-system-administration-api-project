@@ -1,5 +1,5 @@
 <?php
-namespace App\Services;
+namespace App\Http\Services;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\Comment;
@@ -16,7 +16,8 @@ class TaskService
 { protected $attachmentService;
     public function __construct(AttachmentService $attachmentService)
     {
-        $this->$attachmentService = $attachmentService;
+        $this->attachmentService = $attachmentService;
+
     } 
     /*
      * @param Request $request 
@@ -74,7 +75,7 @@ class TaskService
      * @param int $id of the task.
      * @return array containing the task resource.
      * @throws \Exception exception if the task is not found.*/
-    public function showtask(int $id): array
+    public function showTask(int $id): array
     {
         // Find task by ID
         $task = Task::find($id);
@@ -140,7 +141,7 @@ class TaskService
      * @throws \Exception
      */
     public function updateTaskStatus(int $id, string $status){
-        $task=Task::find($id)->first();
+        $task=Task::find($id);
     if(! $task){
         throw new \Exception("the task not found");
     }
