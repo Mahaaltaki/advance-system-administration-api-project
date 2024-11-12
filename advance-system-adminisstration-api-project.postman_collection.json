@@ -1,0 +1,4554 @@
+{
+	"info": {
+		"_postman_id": "102f604f-fad2-4085-bebe-0f15200d0410",
+		"name": "task-7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37897234"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "maha",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mmmj0616@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "767676767676",
+									"type": "text"
+								},
+								{
+									"key": "confirmation_password",
+									"value": "767676767676",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "maha",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mmmj0616@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "767676767676",
+											"type": "text"
+										},
+										{
+											"key": "confirmation_password",
+											"value": "767676767676",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 22:12:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"name\": \"maha\",\n        \"email\": \"mmmj0616@gmail.com\",\n        \"updating_time\": \"2024-09-08T22:12:18.000000Z\",\n        \"creating_time\": \"2024-09-08T22:12:18.000000Z\",\n        \"id\": 4\n    },\n    \"authorisation\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw\",\n        \"type\": \"bearer\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "AqeklOkcbAhlJI",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "maha",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mmmj0616@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "767676767676",
+									"type": "text"
+								},
+								{
+									"key": "confirmation_password",
+									"value": "767676767676",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "maha",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mmmj0616@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "767676767676",
+											"type": "text"
+										},
+										{
+											"key": "confirmation_password",
+											"value": "767676767676",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 22:16:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"user\": {\n        \"id\": 4,\n        \"name\": \"maha\",\n        \"email\": \"mmmj0616@gmail.com\",\n        \"email_verified_at\": null,\n        \"created_at\": null,\n        \"updated_at\": null,\n        \"updating_time\": \"2024-09-08T22:12:18.000000Z\",\n        \"creating_time\": \"2024-09-08T22:12:18.000000Z\"\n    },\n    \"authorisation\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI1ODMzNzg2LCJleHAiOjE3MjU4MzczODYsIm5iZiI6MTcyNTgzMzc4NiwianRpIjoiaFJyeHdjOUNOSUhhQkFIViIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OYXze1hlHQhxxqUP4e-Ek8XUO7NUCJ05y-yuUX4dGOQ\",\n        \"type\": \"bearer\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/logout",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 22:18:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Successfully logged out\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get-all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Sep 2024 21:56:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"bring all users successfully.\",\n    \"data\": [\n        {\n            \"name\": \"Bret Haag\",\n            \"email\": \"kuphal.vivian@example.net\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Carey Lesch Sr.\",\n            \"email\": \"xromaguera@example.org\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Prof. Savion Kiehn IV\",\n            \"email\": \"arielle.jaskolski@example.com\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Elda Luettgen\",\n            \"email\": \"johnson.kutch@example.com\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Maiya Reynolds\",\n            \"email\": \"yjaskolski@example.com\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Mr. Giovanni Runolfsdottir\",\n            \"email\": \"tierra.rohan@example.net\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Florian Bosco\",\n            \"email\": \"shayes@example.org\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Bria Fritsch\",\n            \"email\": \"kristian.koepp@example.org\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Dr. Lucius Schuster V\",\n            \"email\": \"lupe.walker@example.com\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        },\n        {\n            \"name\": \"Muriel Bashirian\",\n            \"email\": \"langosh.archibald@example.net\",\n            \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"updated_at\": \"2024-09-15T21:34:17.000000Z\",\n            \"role_id\": null,\n            \"hour\": null\n        }\n    ],\n    \"errors\": null\n}"
+						},
+						{
+							"name": "get-all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 17:19:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"bring all users successfully.\",\n    \"data\": [\n        {\n            \"name\": \"Lucinda Kemmer III\",\n            \"email\": \"lemke.wilford@example.com\"\n        },\n        {\n            \"name\": \"skdfsdncds\",\n            \"email\": \"skdfsdnknnnnkj@sambdmaznbs.com\"\n        },\n        {\n            \"name\": \"Dr. Esteban Rempel\",\n            \"email\": \"gaylord.gutkowski@example.org\"\n        },\n        {\n            \"name\": \"Felix Boehm\",\n            \"email\": \"stephon.simonis@example.org\"\n        },\n        {\n            \"name\": \"Miss Elenora Kreiger\",\n            \"email\": \"ghilpert@example.com\"\n        },\n        {\n            \"name\": \"Ebony Wisoky\",\n            \"email\": \"ruth.jerde@example.com\"\n        },\n        {\n            \"name\": \"Merl Hickle\",\n            \"email\": \"martine.barrows@example.net\"\n        },\n        {\n            \"name\": \"Dr. Cicero Larson IV\",\n            \"email\": \"marcelina52@example.net\"\n        },\n        {\n            \"name\": \"Jayne Gleichner\",\n            \"email\": \"golda.mante@example.org\"\n        },\n        {\n            \"name\": \"Willie Halvorson\",\n            \"email\": \"ricky.stehr@example.net\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "create-user",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "AqeklOkcbAhlJI",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "kdsvlksd",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sjdfcjksnkjhjhkjhkjdcfj@dbc.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "woeruowueo9387420873",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "woeruowueo9387420873",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create-user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "kdsvlksd",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "sjdfcjksndcfj@dbc.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "woeruowueo9387420873",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "woeruowueo9387420873",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 15:44:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"user stored successfuly\",\n    \"data\": {\n        \"name\": \"kdsvlksd\",\n        \"email\": \"sjdfcjksndcfj@dbc.com\",\n        \"created_at\": null,\n        \"updated_at\": null\n    },\n    \"errors\": null\n}"
+						},
+						{
+							"name": "create-user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "kdsvlksd",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "sjdfcjksnkjhjhkjhkjdcfj@dbc.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "woeruowueo9387420873",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "woeruowueo9387420873",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Sep 2024 21:57:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"user stored successfuly\",\n    \"data\": {\n        \"name\": \"kdsvlksd\",\n        \"email\": \"sjdfcjksnkjhjhkjhkjdcfj@dbc.com\",\n        \"created_at\": \"2024-09-15T21:57:42.000000Z\",\n        \"updated_at\": \"2024-09-15T21:57:42.000000Z\",\n        \"role_id\": null,\n        \"hour\": null\n    },\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "update-user",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "AqeklOkcbAhlJI",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/2?name=skdfsdncds&email=skdfsdn@sambdmaznbs.com&password=woeruowueo9387420873&password_confirmation=woeruowueo9387420873",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "skdfsdncds"
+								},
+								{
+									"key": "email",
+									"value": "skdfsdn@sambdmaznbs.com"
+								},
+								{
+									"key": "password",
+									"value": "woeruowueo9387420873"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "woeruowueo9387420873"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update-user",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/2?name=skdfsdncds&email=skdfsdn@sambdmaznbs.com&password=woeruowueo9387420873&password_confirmation=woeruowueo9387420873",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"2"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "skdfsdncds"
+										},
+										{
+											"key": "email",
+											"value": "skdfsdn@sambdmaznbs.com"
+										},
+										{
+											"key": "password",
+											"value": "woeruowueo9387420873"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "woeruowueo9387420873"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 15:45:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"the user updated successfuly\",\n    \"data\": {\n        \"name\": \"skdfsdncds\",\n        \"email\": \"skdfsdn@sambdmaznbs.com\",\n        \"created_at\": null,\n        \"updated_at\": null\n    },\n    \"errors\": null\n}"
+						},
+						{
+							"name": "update-user",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/2?name=skdfsdncds&email=skdfsdn@sambdmaznbs.com&password=woeruowueo9387420873&password_confirmation=woeruowueo9387420873",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"2"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "skdfsdncds"
+										},
+										{
+											"key": "email",
+											"value": "skdfsdn@sambdmaznbs.com"
+										},
+										{
+											"key": "password",
+											"value": "woeruowueo9387420873"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "woeruowueo9387420873"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Sep 2024 22:00:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"the user updated successfuly\",\n    \"data\": {\n        \"name\": \"skdfsdncds\",\n        \"email\": \"skdfsdn@sambdmaznbs.com\",\n        \"created_at\": \"2024-09-15T21:34:17.000000Z\",\n        \"updated_at\": \"2024-09-15T22:00:14.000000Z\",\n        \"role_id\": null,\n        \"hour\": null\n    },\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-user",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "AqeklOkcbAhlJI",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete-user",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 15:46:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"the user deleted successfully.\",\n    \"data\": [],\n    \"errors\": null\n}"
+						},
+						{
+							"name": "delete-user",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Sep 2024 22:01:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"the user deleted successfully.\",\n    \"data\": [],\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/users",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "AqeklOkcbAhlJI",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "kdsvlksd",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sjdfcjksnkjhjhkjhkjdcfj",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "woeruowueo9387420873",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "woeruowueo9387420873",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create_users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "kdsvlksd",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "sjdfcjksnkjhjhkjhkjdcfj",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "woeruowueo9387420873",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "woeruowueo9387420873",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Sep 2024 21:58:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The email must be a email.\",\n    \"errors\": {\n        \"email\": [\n            \"The email must be a email.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/users",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "AqeklOkcbAhlJI",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "kdsvlksd",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sjdfcjksndcfj@dbc.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "woe",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "woeruowueo9387420873",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create_users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "kdsvlksd",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "sjdfcjksndcfj@dbc.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "woe",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "woeruowueo9387420873",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Sep 2024 21:59:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The email has already been taken. (and 2 more errors)\",\n    \"errors\": {\n        \"email\": [\n            \"The email has already been taken.\"\n        ],\n        \"password\": [\n            \"The password field confirmation does not match.\",\n            \"The password field must be at least 8 characters.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update-user",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI1ODMzNTM4LCJleHAiOjE3MjU4MzcxMzgsIm5iZiI6MTcyNTgzMzUzOCwianRpIjoiZ3BHWkRrck5hTVhka1I4MiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U29BJaE9zWWynPec3ca9UXnjBsJMFTzeuFmSq_BcOIw",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "AqeklOkcbAhlJI",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/2?name=skdfsdncds&email=skdf@bvbbvn.com&password=woeruowueo9387420873&password_confirmation=woeruowueo9387420873&role_id=3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "skdfsdncds"
+								},
+								{
+									"key": "email",
+									"value": "skdf@bvbbvn.com"
+								},
+								{
+									"key": "password",
+									"value": "woeruowueo9387420873"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "woeruowueo9387420873"
+								},
+								{
+									"key": "role_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://127.0.0.1:8000/api/users/2?name=skdfsdncds&email=skdf&password=woeruowueo9387420873&password_confirmation=woeruowueo9387420873",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/2?name=skdfsdncds&email=skdf&password=woeruowueo9387420873&password_confirmation=woeruowueo9387420873",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"2"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "skdfsdncds"
+										},
+										{
+											"key": "email",
+											"value": "skdf"
+										},
+										{
+											"key": "password",
+											"value": "woeruowueo9387420873"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "woeruowueo9387420873"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Sep 2024 22:01:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The email must be a email.\",\n    \"errors\": {\n        \"email\": [\n            \"The email must be a email.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "update-user",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/users/2?name=skdfsdncds&email=skdf@bvbbvn.com&password=woeruowueo9387420873&password_confirmation=woeruowueo9387420873&role_id=3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"2"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "skdfsdncds"
+										},
+										{
+											"key": "email",
+											"value": "skdf@bvbbvn.com"
+										},
+										{
+											"key": "password",
+											"value": "woeruowueo9387420873"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "woeruowueo9387420873"
+										},
+										{
+											"key": "role_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 17:29:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"the user updated successfuly\",\n    \"data\": {\n        \"name\": \"skdfsdncds\",\n        \"email\": \"skdf@bvbbvn.com\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "task",
+			"item": [
+				{
+					"name": "get-all",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI1ODMzNzg2LCJleHAiOjE3MjU4MzczODYsIm5iZiI6MTcyNTgzMzc4NiwianRpIjoiaFJyeHdjOUNOSUhhQkFIViIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OYXze1hlHQhxxqUP4e-Ek8XUO7NUCJ05y-yuUX4dGOQ",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "AqeklOkcbAhlJI",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "zmjbvmzxbvmn",
+									"type": "text"
+								},
+								{
+									"key": "desccription",
+									"value": "jkshdfkjsdfjkshkjdfhskjhdfjkshdkjhxdjkchxkjhvjkxhdkjshdfjkhsjkfhkjsdhfjkshdfkjsdhfkjshd",
+									"type": "text"
+								},
+								{
+									"key": "assigned_to",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "11/2/2021",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Sep 2024 22:59:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"bring all tasks successfully.\",\n    \"data\": [],\n    \"errors\": null\n}"
+						},
+						{
+							"name": "get-all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Sep 2024 08:15:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"bring all tasks successfully.\",\n    \"data\": [],\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "zmcnzxn",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "sjchkjazcjkzgkxjcgzkjgxckzgcjkgjkcgasjkgakjsgjkagsjfgdgkjsgkdg",
+									"type": "text"
+								},
+								{
+									"key": "assigned_to",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2024-09-16 09:53:43",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "low",
+									"type": "text"
+								},
+								{
+									"key": "project_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "zmcnzxn",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "sjchkjazcjkzgkxjcgzkjgxckzgcjkgjkcgasjkgakjsgjkagsjfgdgkjsgkdg",
+											"type": "text"
+										},
+										{
+											"key": "assigned_to",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "due_date",
+											"value": "2024-09-16 09:53:43",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "new",
+											"type": "text"
+										},
+										{
+											"key": "priority",
+											"value": "low",
+											"type": "text"
+										},
+										{
+											"key": "project_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Sep 2024 10:02:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"The task stored successfully\",\n    \"data\": {\n        \"title\": \"zmcnzxn\",\n        \"description\": \"sjchkjazcjkzgkxjcgzkjgxckzgcjkgjkcgasjkgakjsgjkagsjfgdgkjsgkdg\",\n        \"status\": \"new\",\n        \"priority\": \"low\",\n        \"due_date\": \"2024-09-16 09:53:43\",\n        \"project_id\": {\n            \"id\": 1,\n            \"name\": \"ajkdfjhsdlshdclkshd\",\n            \"description\": \"kcldhcjshjhfwlhefoiwyoifiyyeoidywoeiywoieyfoiwyshfkjhkfchmbcmnbxvk.hlfhwljfksjndc.nxc,xnfvkj;lrgj;oerj;sjdvja;jev;oewugpwuosjddc;sj;fo;ruwojf;ljf;lsajkshvdjfhjkdhejrgowupoutj;ofsdcjslkdvhnskdjckdsj\",\n            \"created_at\": null,\n            \"updated_at\": null\n        }\n    },\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "craete-task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "zmcnzxn",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "jh",
+									"type": "text"
+								},
+								{
+									"key": "assigned_to",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2024-09-16 09:53:43",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "low",
+									"type": "text"
+								},
+								{
+									"key": "project_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create-tasks",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "zmcnzxn",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "jh",
+											"type": "text"
+										},
+										{
+											"key": "assigned_to",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "due_date",
+											"value": "2024-09-16 09:53:43",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "new",
+											"type": "text"
+										},
+										{
+											"key": "priority",
+											"value": "low",
+											"type": "text"
+										},
+										{
+											"key": "project_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Sep 2024 10:05:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The description field must be at least 20 characters.\",\n    \"errors\": {\n        \"description\": [\n            \"The description field must be at least 20 characters.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update -task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "zmcnzxn",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "low",
+									"type": "text"
+								},
+								{
+									"key": "project_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "2024-09-16 09:53:43",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/2?title =jshdfjzhcj&description=kjsdhfklshdflkhdklfhslkdhgklshdgklhaskdlgfhklsdhgklshiweytpiywpetyioreytioerytoiyeritupwoeutoajfd;j;dljf;sldhgk;sjetpowqut[oquteo&status=completed&due_date=2024-09-16 09:53:43&projected_id=1&priority=high",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"2"
+							],
+							"query": [
+								{
+									"key": "title ",
+									"value": "jshdfjzhcj"
+								},
+								{
+									"key": "description",
+									"value": "kjsdhfklshdflkhdklfhslkdhgklshdgklhaskdlgfhklsdhgklshiweytpiywpetyioreytioerytoiyeritupwoeutoajfd;j;dljf;sldhgk;sjetpowqut[oquteo"
+								},
+								{
+									"key": "status",
+									"value": "completed"
+								},
+								{
+									"key": "due_date",
+									"value": "2024-09-16 09:53:43"
+								},
+								{
+									"key": "projected_id",
+									"value": "1"
+								},
+								{
+									"key": "priority",
+									"value": "high"
+								},
+								{
+									"key": "_METHOD",
+									"value": "PUT",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update -task",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "ksdjhflhfhdf",
+											"type": "text"
+										},
+										{
+											"key": "priority",
+											"value": "low",
+											"type": "text"
+										},
+										{
+											"key": "project_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks/1?title =jshdfjzhcj&description=kjsdhfklshdflkhdklfhslkdhgklshdgklhaskdlgfhklsdhgklshiweytpiywpetyioreytioerytoiyeritupwoeutoajfd;j;dljf;sldhgk;sjetpowqut[oquteo&status=completed&due_date=2024-09-16 09:53:43&projected_id=1&priority=high",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks",
+										"1"
+									],
+									"query": [
+										{
+											"key": "title ",
+											"value": "jshdfjzhcj"
+										},
+										{
+											"key": "description",
+											"value": "kjsdhfklshdflkhdklfhslkdhgklshdgklhaskdlgfhklsdhgklshiweytpiywpetyioreytioerytoiyeritupwoeutoajfd;j;dljf;sldhgk;sjetpowqut[oquteo"
+										},
+										{
+											"key": "status",
+											"value": "completed"
+										},
+										{
+											"key": "due_date",
+											"value": "2024-09-16 09:53:43"
+										},
+										{
+											"key": "projected_id",
+											"value": "1"
+										},
+										{
+											"key": "priority",
+											"value": "high"
+										},
+										{
+											"key": "_METHOD",
+											"value": "PUT",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Sep 2024 11:17:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"The task not found\",\n    \"code\": 404\n}"
+						},
+						{
+							"name": "update -task",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "zmcnzxn",
+											"type": "text"
+										},
+										{
+											"key": "priority",
+											"value": "low",
+											"type": "text"
+										},
+										{
+											"key": "project_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "new",
+											"type": "text"
+										},
+										{
+											"key": "due_date",
+											"value": "2024-09-16 09:53:43",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks/2?title =jshdfjzhcj&description=kjsdhfklshdflkhdklfhslkdhgklshdgklhaskdlgfhklsdhgklshiweytpiywpetyioreytioerytoiyeritupwoeutoajfd;j;dljf;sldhgk;sjetpowqut[oquteo&status=completed&due_date=2024-09-16 09:53:43&projected_id=1&priority=high",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks",
+										"2"
+									],
+									"query": [
+										{
+											"key": "title ",
+											"value": "jshdfjzhcj"
+										},
+										{
+											"key": "description",
+											"value": "kjsdhfklshdflkhdklfhslkdhgklshdgklhaskdlgfhklsdhgklshiweytpiywpetyioreytioerytoiyeritupwoeutoajfd;j;dljf;sldhgk;sjetpowqut[oquteo"
+										},
+										{
+											"key": "status",
+											"value": "completed"
+										},
+										{
+											"key": "due_date",
+											"value": "2024-09-16 09:53:43"
+										},
+										{
+											"key": "projected_id",
+											"value": "1"
+										},
+										{
+											"key": "priority",
+											"value": "high"
+										},
+										{
+											"key": "_METHOD",
+											"value": "PUT",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Sep 2024 12:23:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"The task updated successfully\",\n    \"data\": {\n        \"title\": \"zmcnzxn\",\n        \"description\": \"kjsdhfklshdflkhdklfhslkdhgklshdgklhaskdlgfhklsdhgklshiweytpiywpetyioreytioerytoiyeritupwoeutoajfd;j;dljf;sldhgk;sjetpowqut[oquteo\",\n        \"status\": \"new\",\n        \"priority\": \"low\",\n        \"due_date\": \"2024-09-16 09:53:43\",\n        \"project_id\": {\n            \"id\": 1,\n            \"name\": \"ajkdfjhsdlshdclkshd\",\n            \"description\": \"kcldhcjshjhfwlhefoiwyoifiyyeoidywoeiywoieyfoiwyshfkjhkfchmbcmnbxvk.hlfhwljfksjndc.nxc,xnfvkj;lrgj;oerj;sjdvja;jev;oewugpwuosjddc;sj;fo;ruwojf;ljf;lsajkshvdjfhjkdhejrgowupoutj;ofsdcjslkdvhnskdjckdsj\",\n            \"created_at\": null,\n            \"updated_at\": null\n        }\n    },\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/tasks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "zmcnzxn",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "jhjahdjhajhdlahsldkahlskdhaklshflkheriowyroywoiytriow",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "due_date",
+									"value": "2024-09-16 09:53:43",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "low",
+									"type": "text"
+								},
+								{
+									"key": "project_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://127.0.0.1:8000/api/task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "zmcnzxn",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "jhjahdjhajhdlahsldkahlskdhaklshflkheriowyroywoiytriow",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "due_date",
+											"value": "2024-09-16 09:53:43",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "new",
+											"type": "text"
+										},
+										{
+											"key": "priority",
+											"value": "low",
+											"type": "text"
+										},
+										{
+											"key": "project_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Sep 2024 10:17:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"The task stored successfully\",\n    \"data\": {\n        \"title\": \"zmcnzxn\",\n        \"description\": \"jhjahdjhajhdlahsldkahlskdhaklshflkheriowyroywoiytriow\",\n        \"status\": \"new\",\n        \"priority\": \"low\",\n        \"due_date\": \"2024-09-16 09:53:43\",\n        \"project_id\": {\n            \"id\": 1,\n            \"name\": \"ajkdfjhsdlshdclkshd\",\n            \"description\": \"kcldhcjshjhfwlhefoiwyoifiyyeoidywoeiywoieyfoiwyshfkjhkfchmbcmnbxvk.hlfhwljfksjndc.nxc,xnfvkj;lrgj;oerj;sjdvja;jev;oewugpwuosjddc;sj;fo;ruwojf;ljf;lsajkshvdjfhjkdhejrgowupoutj;ofsdcjslkdvhnskdjckdsj\",\n            \"created_at\": null,\n            \"updated_at\": null\n        }\n    },\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tasks/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tasks",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Sep 2024 12:26:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"the book deleted successfully.\",\n    \"data\": [],\n    \"errors\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "get_all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/projects",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/projects",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"projects"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 17 Sep 2024 09:08:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"bring all projects successfully.\",\n    \"data\": [\n        {\n            \"name\": \"ajkdfjhsdlshdclkshd\",\n            \"description\": \"kcldhcjshjhfwlhefoiwyoifiyyeoidywoeiywoieyfoiwyshfkjhkfchmbcmnbxvk.hlfhwljfksjndc.nxc,xnfvkj;lrgj;oerj;sjdvja;jev;oewugpwuosjddc;sj;fo;ruwojf;ljf;lsajkshvdjfhjkdhejrgowupoutj;ofsdcjslkdvhnskdjckdsj\"\n        }\n    ],\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "store_project",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "roles",
+			"item": [
+				{
+					"name": "get-all-roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/roles",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/roles",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"roles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 16:45:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"bring all roles successfully.\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"manager\",\n            \"description\": null,\n            \"role_id\": null\n        },\n        {\n            \"id\": 2,\n            \"name\": \"editor\",\n            \"description\": null,\n            \"role_id\": null\n        },\n        {\n            \"id\": 3,\n            \"name\": \"user\",\n            \"description\": null,\n            \"role_id\": null\n        }\n    ]\n}"
+						},
+						{
+							"name": "get-all-roles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/roles",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"roles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 17:30:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"bring all roles successfully.\",\n    \"data\": [\n        {\n            \"name\": \"manager\",\n            \"description\": \"control of all\"\n        },\n        {\n            \"name\": \"editor\",\n            \"description\": \"control of permission\"\n        },\n        {\n            \"name\": \"user\",\n            \"description\": \"no control\"\n        },\n        {\n            \"name\": \"teacher\",\n            \"description\": \"kzhclzkhxckzhxlkhzlxkhclzkhxckl\"\n        },\n        {\n            \"name\": \"teache\",\n            \"description\": \"kzhclzkhxckzhxlkhzlxkhclzkhxckl\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "teacher",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "kzhclzkhxckzhxlkhzlxkhclzkhxckl",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/roles",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "teacher",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "kzhclzkhxckzhxlkhzlxkhclzkhxckl",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/roles",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"roles"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 16:58:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"role stored successfuly\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"teacher\",\n        \"description\": null,\n        \"role_id\": null\n    }\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "teacher",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "kzhclzkhxckzhxlkhzlxkhclzkhxckl",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/roles",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"roles"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 17:30:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The name has already been taken.\",\n    \"errors\": {\n        \"name\": [\n            \"The name has already been taken.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update-role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "teachee",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "kzhclzkhxckzhxlkhzlxkhclzkhxckl",
+									"type": "text"
+								},
+								{
+									"key": "role_id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/roles/4?name=jcvjxbcvmbxmcbv&description=kdlhflskdhflshdflkshkfhsldhflskdgh",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"roles",
+								"4"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "jcvjxbcvmbxmcbv"
+								},
+								{
+									"key": "description",
+									"value": "kdlhflskdhflshdflkshkfhsldhflskdgh"
+								},
+								{
+									"key": "id",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update-role",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "teachee",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "kzhclzkhxckzhxlkhzlxkhclzkhxckl",
+											"type": "text"
+										},
+										{
+											"key": "role_id",
+											"value": "5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/roles/4?name=jcvjxbcvmbxmcbv&description=kdlhflskdhflshdflkshkfhsldhflskdgh",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"roles",
+										"4"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "jcvjxbcvmbxmcbv"
+										},
+										{
+											"key": "description",
+											"value": "kdlhflskdhflshdflkshkfhsldhflskdgh"
+										},
+										{
+											"key": "id",
+											"value": "5",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 20:50:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Role updated successfully\",\n    \"data\": {\n        \"name\": \"teachee\",\n        \"description\": \"kzhclzkhxckzhxlkhzlxkhclzkhxckl\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/roles/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"roles",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete-roles",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/roles/4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"roles",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 20:52:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"the role deleted successfully.\",\n    \"data\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "permission",
+			"item": [
+				{
+					"name": "get-all-permission",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/permissions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"permissions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/permissions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"permissions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 22:32:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"bring all permission successfully.\",\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "add-per",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "dgdfgdfg",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "ajdhkjsgdjgaskjgdakjsgdkja",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/permissions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"permissions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add-per",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "dgdfgdfg",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "ajdhkjsgdjgaskjgdakjsgdkja",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/permissions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"permissions"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Oct 2024 18:40:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Permission stored successfully.\",\n    \"data\": {\n        \"name\": \"dgdfgdfg\",\n        \"description\": \"ajdhkjsgdjgaskjgdakjsgdkja\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "add-permission",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "dgdfgdfg",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "ajdhkjsgdjgaskjgdakjsgdkja",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/permissions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "secret",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzI3NDI5MjU4LCJleHAiOjE3Mjc0MzI4NTgsIm5iZiI6MTcyNzQyOTI1OCwianRpIjoicmR1YzdGcXViRFdhcGhLZCIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.NaBzHEOg5MvPzzID-J5SCBy4tD2nshhql6G5yaMiN-g\n",
+									"type": "string"
+								},
+								{
+									"key": "payload",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzI1ODMzNzg2LCJleHAiOjE3MjU4MzczODYsIm5iZiI6MTcyNTgzMzc4NiwianRpIjoiaFJyeHdjOUNOSUhhQkFIViIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OYXze1hlHQhxxqUP4e-Ek8XUO7NUCJ05y-yuUX4dGOQ",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "dgdfgdfg",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "ajdhkjsgdjgaskjgdakjsgdkja",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/permissions/1?name=dgdfgdfg&description=ajdhkjsgdjgaskjgdakjsgdkja",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"permissions",
+								"1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "dgdfgdfg"
+								},
+								{
+									"key": "description",
+									"value": "ajdhkjsgdjgaskjgdakjsgdkja"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "dgdfgdfg",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "ajdhkjsgdjgaskjgdakjsgdkja",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/permissions/1?name=dgdfgdfg&description=ajdhkjsgdjgaskjgdakjsgdkja",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"permissions",
+										"1"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "dgdfgdfg"
+										},
+										{
+											"key": "description",
+											"value": "ajdhkjsgdjgaskjgdakjsgdkja"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Oct 2024 19:09:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"the permission updated successfuly\",\n    \"data\": {\n        \"name\": \"dgdfgdfg\",\n        \"description\": \"ajdhkjsgdjgaskjgdakjsgdkja\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
