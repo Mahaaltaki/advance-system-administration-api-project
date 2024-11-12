@@ -1,8 +1,3 @@
-README for Advanced Task Management API
-Project Title:
-
-Advanced Task Management API with Real-time Notifications, Task Dependencies, and Enhanced Security
-Overview:
 
 This project aims to develop a robust Task Management API with advanced features to facilitate comprehensive task management workflows. It supports real-time notifications, task dependencies, and high-level security measures to protect user data. Key features include the ability to manage various types of tasks (e.g., Improvements, Features, Bugs), handle task dependencies, and generate regular performance reports. User roles, permissions, and authentication are managed to ensure secure access and actions within the system.
 Features:
@@ -105,7 +100,7 @@ Error Handling and Reporting
 Additional Reporting Options
 
     API supports generating various types of reports (e.g., completed tasks, delayed tasks, tasks by user) with advanced filtering capabilities.
-شيي
+
 Setup and Installation
 
     Clone the Repository:
